@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Projeto escolar sobre Segurança Digital"><title>🔐 Segurança Digital | Projeto Escolar</title>
+<style>
+:root{--bg:#071018;--card:#102331;--text:#f5fbff;--muted:#a9bdca;--cyan:#00c8ff;--green:#00f078;--purple:#a855f7;--red:#ff4d5e;--yellow:#ffd166;--border:rgba(255,255,255,.1)}
+*{box-sizing:border-box;scroll-behavior:smooth}body{margin:0;color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at 10% 10%,#00c8ff1f,transparent 28%),radial-gradient(circle at 90% 20%,#a855f71c,transparent 28%),linear-gradient(135deg,var(--bg),#03070a 70%);overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(#ffffff06 1px,transparent 1px),linear-gradient(90deg,#ffffff06 1px,transparent 1px);background-size:42px 42px}
+header{min-height:76vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 20px}.hero{max-width:1000px;animation:rise .9s ease both}.badge{display:inline-block;padding:9px 16px;border:1px solid #00c8ff59;border-radius:999px;background:#00c8ff14;color:#8ee9ff;font-weight:800}.hero h1{font-size:clamp(3rem,8vw,6.5rem);line-height:.95;margin:22px 0;letter-spacing:-.06em;background:linear-gradient(90deg,#fff,var(--cyan),#fff,var(--purple));background-size:250% auto;-webkit-background-clip:text;color:transparent;animation:shine 7s linear infinite}.hero p{font-size:clamp(1rem,2vw,1.3rem);color:var(--muted);max-width:720px;margin:0 auto 32px;line-height:1.7}.cta{display:inline-block;padding:15px 24px;border-radius:14px;text-decoration:none;color:#031016;background:linear-gradient(135deg,var(--cyan),#76e8ff);font-weight:900;transition:.25s}.cta:hover{transform:translateY(-3px);box-shadow:0 15px 45px #00c8ff59}.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:850px;margin:45px auto 0}.stat{padding:20px;border:1px solid var(--border);background:#ffffff08;border-radius:18px}.stat b{display:block;font-size:1.7rem}.stat span{color:var(--muted);font-size:.9rem}
+nav{position:sticky;top:0;z-index:50;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:12px 15px;background:#03090dcc;backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}nav a{color:#dbeaf1;text-decoration:none;padding:10px 14px;border-radius:10px;font-size:.93rem;font-weight:700;transition:.2s}nav a:hover,nav a.active{color:#fff;background:#00c8ff1f;box-shadow:inset 0 0 0 1px #00c8ff2e}
+main{max-width:1180px;margin:auto;padding:20px 20px 80px}section{padding:75px 0;scroll-margin-top:80px}.section-head{text-align:center;margin-bottom:42px}.eyebrow{color:var(--cyan);font-size:.8rem;text-transform:uppercase;letter-spacing:.18em;font-weight:900}.section-head h2{font-size:clamp(2rem,5vw,3.2rem);margin:10px 0}.section-head p{color:var(--muted);max-width:720px;margin:auto;line-height:1.7}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.card{background:linear-gradient(145deg,#142633e6,#081219eb);border:1px solid var(--border);border-radius:22px;padding:28px;box-shadow:0 20px 60px #00000059;transition:.3s}.card:hover{transform:translateY(-6px);border-color:#00c8ff4d}.card h3{font-size:1.35rem;margin:0 0 12px}.card p,.card li{color:#c1d1d9;line-height:1.7}.card ul{padding-left:20px}.card li{margin:10px 0}.number{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:#00c8ff1f;color:var(--cyan);font-weight:900;margin-bottom:16px}.warning{border-color:#ff4d5e59}.warning .number{background:#ff4d5e1f;color:var(--red)}.safe{border-color:#00f0784d}.safe .number{background:#00f0781a;color:var(--green)}.purple{border-color:#a855f74d}.purple .number{background:#a855f71f;color:#c58aff}.callout{margin-top:25px;padding:25px;border-radius:20px;background:linear-gradient(135deg,#ffd1661a,#ff4d5e12);border:1px solid #ffd16638}.callout strong{color:var(--yellow)}
+.password-box{margin-top:25px;padding:28px;border-radius:22px;background:linear-gradient(135deg,#00c8ff14,#00f0780f);border:1px solid #00c8ff33}.generator{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.generator input{flex:1;min-width:220px;padding:13px 15px;border-radius:12px;border:1px solid var(--border);background:#071018;color:#fff;font-size:1rem}button{border:0;border-radius:12px;padding:13px 18px;cursor:pointer;background:var(--cyan);color:#031016;font-weight:900}.copy{background:#172b38;color:#dff7ff}
+.timeline{display:grid;gap:18px}.step{display:grid;grid-template-columns:60px 1fr;gap:18px;align-items:start}.step-icon{width:60px;height:60px;border-radius:18px;display:grid;place-items:center;background:#a855f71f;border:1px solid #a855f740;font-size:1.5rem}.step .card{padding:22px}.integrantes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.person{text-align:center;padding:25px 12px;border-radius:20px;background:#ffffff08;border:1px solid var(--border);transition:.25s}.person:hover{transform:translateY(-5px);border-color:#a855f766}.avatar{width:62px;height:62px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;font-weight:900;background:linear-gradient(135deg,#142b39,#34204c);border:1px solid #ffffff1f}.person span{color:var(--muted);font-size:.9rem}.backtop{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;text-decoration:none;background:#0e2634;color:#fff;border:1px solid var(--border);z-index:30}footer{text-align:center;padding:40px 20px;border-top:1px solid var(--border);color:var(--muted);background:#0003}.reveal{opacity:0;transform:translateY(22px);transition:.7s}.reveal.show{opacity:1;transform:none}@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}@keyframes shine{to{background-position:250% center}}
+.accordion-section{padding:0;margin:18px 0;scroll-margin-top:85px}.accordion-section .section-head{margin:0;padding:22px 28px;text-align:left;background:linear-gradient(145deg,#142633e6,#081219eb);border:1px solid var(--border);border-radius:18px;cursor:pointer;position:relative;transition:.25s}.accordion-section .section-head:hover{border-color:#00c8ff66;transform:translateY(-2px)}.accordion-section .section-head:after{content:'+';position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:30px;color:var(--cyan)}.accordion-section.open .section-head{border-radius:18px 18px 0 0}.accordion-section.open .section-head:after{content:'−'}.accordion-content{display:none;padding:0 0 8px}.accordion-section.open .accordion-content{display:block}.accordion-content-inner{padding:25px;background:#071018;border:1px solid var(--border);border-top:0;border-radius:0 0 18px 18px}.quiz-box{background:linear-gradient(145deg,#142633e6,#081219eb);border:1px solid var(--border);border-radius:22px;padding:28px}.quiz-question{margin:20px 0;padding:20px;border:1px solid var(--border);border-radius:16px;background:#ffffff05}.quiz-question label{display:block;margin:12px 0;color:#c1d1d9;cursor:pointer}.quiz-result{margin-top:20px;font-size:1.2rem;font-weight:800}.quiz-btn{margin-top:10px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.hero-stats{grid-template-columns:1fr}.integrantes{grid-template-columns:repeat(2,1fr)}nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap}nav a{white-space:nowrap}}@media(max-width:480px){header{min-height:70vh}.integrantes{grid-template-columns:1fr 1fr}.card{padding:22px}section{padding:55px 0}}
+
+/* PAINÉIS RECOLHIDOS */
+.topic-list{display:grid;gap:14px;max-width:980px;margin:auto}
+.topic{border:1px solid var(--border);border-radius:18px;background:linear-gradient(145deg,#142633e6,#081219eb);overflow:hidden;box-shadow:0 12px 35px #0005}
+.topic summary{list-style:none;cursor:pointer;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:1.12rem;font-weight:900}
+.topic summary::-webkit-details-marker{display:none}
+.topic summary::after{content:"＋";font-size:1.5rem;color:var(--cyan);transition:.25s}
+.topic[open] summary::after{content:"−";transform:rotate(180deg)}
+.topic summary:hover{background:#00c8ff0d}
+.topic-content{padding:0 24px 25px;border-top:1px solid var(--border)}
+.topic-content .grid{margin-top:22px}
+.quiz-box{max-width:980px;margin:auto}
+.quiz-question{padding:22px;margin:16px 0;border:1px solid var(--border);border-radius:16px;background:#ffffff06}
+.quiz-question label{display:block;padding:11px 14px;margin:8px 0;border-radius:10px;background:#071018;border:1px solid var(--border);cursor:pointer}
+.quiz-question label:hover{border-color:#00c8ff66}
+#resultadoQuiz{display:none;margin-top:20px;padding:22px;border-radius:16px;text-align:center;font-size:1.2rem;font-weight:800}
+.accordion-section{padding:0;margin:18px 0;scroll-margin-top:85px}.accordion-section .section-head{margin:0;padding:22px 28px;text-align:left;background:linear-gradient(145deg,#142633e6,#081219eb);border:1px solid var(--border);border-radius:18px;cursor:pointer;position:relative;transition:.25s}.accordion-section .section-head:hover{border-color:#00c8ff66;transform:translateY(-2px)}.accordion-section .section-head:after{content:'+';position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:30px;color:var(--cyan)}.accordion-section.open .section-head{border-radius:18px 18px 0 0}.accordion-section.open .section-head:after{content:'−'}.accordion-content{display:none;padding:0 0 8px}.accordion-section.open .accordion-content{display:block}.accordion-content-inner{padding:25px;background:#071018;border:1px solid var(--border);border-top:0;border-radius:0 0 18px 18px}.quiz-box{background:linear-gradient(145deg,#142633e6,#081219eb);border:1px solid var(--border);border-radius:22px;padding:28px}.quiz-question{margin:20px 0;padding:20px;border:1px solid var(--border);border-radius:16px;background:#ffffff05}.quiz-question label{display:block;margin:12px 0;color:#c1d1d9;cursor:pointer}.quiz-result{margin-top:20px;font-size:1.2rem;font-weight:800}.quiz-btn{margin-top:10px}
+@media(max-width:800px){.integrantes{grid-template-columns:repeat(2,1fr)}}
+
+/* MODO DE TÓPICOS: somente o tópico escolhido fica visível */
+main section.topic-page{display:none !important; padding-top:38px; min-height:520px;}
+main section.topic-page.active-topic{display:block !important; animation:topicIn .28s ease both;}
+main section.topic-page .accordion-content{display:block !important;}
+main section.topic-page .section-head{cursor:default;}
+main section.topic-page .section-head:after{display:none;}
+@keyframes topicIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* MENU SUPERIOR SEM PRECISAR DESCER A PÁGINA */
+nav#nav{position:fixed;top:0;left:0;right:0;width:100%;}
+body{padding-top:64px;}
+body:not(.home-active) header{display:none;}
+body.home-active main{padding-top:20px;}
+body:not(.home-active) main{padding-top:20px;}
+</style></head>
+<body id="top" class="home-active">
+<header><div class="hero"><div class="badge">🔐 PROJETO ESCOLAR • SEGURANÇA DIGITAL</div><h1>Segurança<br>Digital</h1><p>Aprenda a proteger suas contas, seus dados e sua privacidade enquanto navega pela internet.</p><a class="cta" href="#inicio">Começar a aprender ↓</a><div class="hero-stats"><div class="stat"><b>🔑</b><span>Senhas seguras</span></div><div class="stat"><b>🎣</b><span>Phishing e golpes</span></div><div class="stat"><b>🌐</b><span>Navegação segura</span></div></div></div></header>
+<nav id="nav" aria-label="Tópicos do projeto">
+<a href="#inicio" class="active">🏠 Início</a><a href="#senhas">🔑 Senhas</a><a href="#phishing">🎣 Phishing</a><a href="#redes">📱 Redes</a><a href="#virus">🦠 Vírus</a><a href="#navegacao">🌐 Navegação</a><a href="#integrantes">👥 Integrantes</a><a href="#quiz">🧠 Quiz</a>
+</nav>
+<main>
+<section id="inicio" class="topic-page reveal">
+<div class="section-head"><div class="eyebrow">Por que isso importa?</div><h2>Proteja sua vida online</h2><p>A internet faz parte do nosso dia a dia. Conhecer os riscos ajuda a navegar com mais segurança.</p></div>
+<div class="grid"><article class="card"><div class="number">01</div><h3>🔐 Seus dados</h3><p>Golpes, roubo de contas, vírus e exposição de informações pessoais podem colocar seus dados em risco.</p></article><article class="card"><div class="number">02</div><h3>🧠 Informação é proteção</h3><p>Conhecer os principais riscos ajuda você a tomar decisões melhores antes de clicar, baixar, publicar ou compartilhar.</p></article></div>
+</section>
+
+<section id="senhas" class="topic-page reveal"><div class="section-head"><div class="eyebrow">01 • Contas</div><h2>🔑 Senhas Seguras</h2><p>Clique nos tópicos abaixo para ver as informações.</p></div><div class="accordion-content"><div class="accordion-content-inner">
+<div class="topic-list">
+<details class="topic"><summary>🔐 Como criar uma senha segura?</summary><div class="topic-content"><ul><li>Seja difícil de adivinhar.</li><li>Use senhas diferentes em outras contas.</li><li>Evite informações fáceis de descobrir.</li><li>Mantenha sua senha em segredo.</li></ul></div></details>
+<details class="topic"><summary>⚠️ O que evitar?</summary><div class="topic-content"><ul><li>Nome ou apelido.</li><li>Datas de nascimento.</li><li>Sequências muito óbvias.</li><li>Compartilhar sua senha.</li><li>Reutilizar a mesma senha em vários sites.</li></ul></div></details>
+<details class="topic"><summary>🛡️ Autenticação em dois fatores</summary><div class="topic-content"><p>Adiciona uma camada extra de segurança. Além da senha, a conta pode exigir outro método de confirmação para permitir o acesso.</p></div></details>
+<details class="topic"><summary>💡 Dica importante</summary><div class="topic-content"><p>Sempre que possível, ative a autenticação em dois fatores e evite reutilizar a mesma senha em diferentes contas.</p></div></details>
+<details class="topic"><summary>✨ Teste rápido de senha</summary><div class="topic-content"><p>Digite uma senha apenas para verificar visualmente sua força. <b>Não use uma senha real.</b></p><div class="generator"><input id="senhaTeste" type="text" placeholder="Digite uma senha de teste" autocomplete="off"><button onclick="avaliarSenha()">Avaliar</button></div><p id="resultadoSenha" aria-live="polite"></p></div></details>
+</div></div></div></section>
+
+<section id="phishing" class="topic-page reveal"><div class="section-head"><div class="eyebrow">02 • Golpes</div><h2>🎣 Phishing e Golpes</h2><p>Clique para abrir cada tópico.</p></div><div class="accordion-content"><div class="accordion-content-inner">
+<div class="topic-list">
+<details class="topic"><summary>🔎 Como identificar um possível golpe?</summary><div class="topic-content"><ul><li>Links desconhecidos ou suspeitos.</li><li>Mensagens com erros estranhos ou informações duvidosas.</li><li>Pedidos de senha ou informações pessoais.</li><li>Ofertas boas demais para serem verdade.</li><li>Mensagens tentando criar medo ou urgência.</li></ul></div></details>
+<details class="topic"><summary>🛡️ Como se proteger?</summary><div class="topic-content"><ul><li>Não clique em links suspeitos.</li><li>Confira o endereço do site antes de inserir informações.</li><li>Não envie senhas para outras pessoas.</li><li>Desconfie de mensagens inesperadas.</li><li>Procure o site oficial da empresa quando tiver dúvidas.</li></ul></div></details>
+<details class="topic"><summary>⚠️ Regra de ouro</summary><div class="topic-content"><p>Se uma mensagem tentar fazer você agir rapidamente, pare e verifique as informações antes de tomar qualquer atitude.</p></div></details>
+</div></div></div></section>
+
+<section id="redes" class="topic-page reveal"><div class="section-head"><div class="eyebrow">03 • Privacidade</div><h2>📱 Segurança nas Redes Sociais</h2><p>Clique para descobrir cada informação.</p></div><div class="accordion-content"><div class="accordion-content-inner">
+<div class="topic-list">
+<details class="topic"><summary>🌐 O que são redes sociais?</summary><div class="topic-content"><p>São plataformas usadas para conversar, compartilhar fotos, vídeos e informações. Alguns exemplos são Instagram, WhatsApp, Discord e X.</p></div></details>
+<details class="topic"><summary>⚠️ Principais riscos</summary><div class="topic-content"><ul><li>Exposição de informações pessoais.</li><li>Perfis falsos.</li><li>Golpes e links maliciosos.</li><li>Roubo de contas.</li><li>Compartilhamento de informações privadas.</li></ul></div></details>
+<details class="topic"><summary>🛡️ Como se proteger?</summary><div class="topic-content"><ul><li>Evite compartilhar dados pessoais.</li><li>Use senhas fortes.</li><li>Ative a autenticação em dois fatores.</li><li>Confira as configurações de privacidade.</li><li>Tenha cuidado com links recebidos.</li></ul></div></details>
+<details class="topic"><summary>🔒 Cuide da sua privacidade</summary><div class="topic-content"><p>Antes de publicar uma foto, vídeo ou informação, pense em quem poderá visualizar esse conteúdo. Mesmo depois de apagar uma publicação, outras pessoas podem ter salvado ou compartilhado.</p></div></details>
+</div></div></div></section>
+
+<section id="virus" class="topic-page reveal"><div class="section-head"><div class="eyebrow">04 • Dispositivos</div><h2>🦠 Vírus e Arquivos Suspeitos</h2><p>Clique para abrir as informações.</p></div><div class="accordion-content"><div class="accordion-content-inner">
+<div class="topic-list">
+<details class="topic"><summary>🔴 Como identificar</summary><div class="topic-content"><ul><li>Computador ficando muito lento.</li><li>Programas abrindo sozinhos.</li><li>Arquivos desaparecendo ou mudando.</li><li>Pop-ups e anúncios inesperados.</li><li>Mensagens estranhas sendo enviadas pela sua conta.</li></ul></div></details>
+<details class="topic"><summary>🔵 Como se proteger</summary><div class="topic-content"><ul><li>Mantenha o sistema atualizado.</li><li>Use um antivírus confiável.</li><li>Evite baixar arquivos de sites desconhecidos.</li><li>Não clique em links suspeitos.</li><li>Faça backups dos arquivos importantes.</li></ul></div></details>
+</div></div></div></section>
+
+<section id="navegacao" class="topic-page reveal"><div class="section-head"><div class="eyebrow">05 • Internet</div><h2>🌐 Navegação Segura</h2><p>Clique em cada tópico para visualizar o conteúdo.</p></div><div class="accordion-content"><div class="accordion-content-inner">
+<div class="topic-list">
+<details class="topic"><summary>🌐 O que é navegação segura?</summary><div class="topic-content"><p>É utilizar a internet de forma consciente, evitando situações que possam colocar seus dados e dispositivos em risco.</p></div></details>
+<details class="topic"><summary>⚠️ Riscos da navegação</summary><div class="topic-content"><p>Durante a navegação podemos encontrar sites falsos, golpes, vírus, anúncios maliciosos e páginas criadas para roubar informações.</p></div></details>
+<details class="topic"><summary>🛡️ Como navegar com segurança</summary><div class="topic-content"><p>Verifique se o site é confiável, mantenha o navegador atualizado e evite fornecer informações pessoais em páginas desconhecidas.</p></div></details>
+<details class="topic"><summary>💡 Dicas importantes</summary><div class="topic-content"><p>Desconfie de ofertas muito boas, não baixe arquivos desconhecidos e pense antes de clicar em links.</p></div></details>
+</div></div></div></section>
+
+<section id="integrantes" class="topic-page reveal"><div class="section-head"><div class="eyebrow">Projeto</div><h2>👥 Integrantes</h2><p>Equipe responsável pelo projeto escolar de Segurança Digital.</p></div><div class="accordion-content"><div class="accordion-content-inner">
+<div class="integrantes"><div class="person"><div class="avatar">AL</div><b>Aline Lizete</b><br><span>Integrante</span></div><div class="person"><div class="avatar">JV</div><b>João Viana</b><br><span>Integrante</span></div><div class="person"><div class="avatar">AC</div><b>Ana Clara</b><br><span>Integrante</span></div><div class="person"><div class="avatar">G</div><b>Gilberto</b><br><span>Integrante</span></div></div></div></div></section>
+
+
+<section id="quiz" class="topic-page reveal"><div class="section-head"><div class="eyebrow">Desafio final</div><h2>🧠 Quiz de Segurança Digital</h2><p>Teste o que você aprendeu sobre senhas, phishing, redes sociais, vírus e navegação segura.</p></div><div class="quiz-box"><div class="quiz-question"><h3>1. Qual atitude ajuda a proteger uma conta?</h3><label><input type="radio" name="q1" value="0"> Compartilhar a senha com amigos</label><label><input type="radio" name="q1" value="1"> Ativar a autenticação em dois fatores</label><label><input type="radio" name="q1" value="0"> Usar a mesma senha em todos os sites</label></div><div class="quiz-question"><h3>2. O que é phishing?</h3><label><input type="radio" name="q2" value="1"> Um golpe que tenta enganar a pessoa para obter informações</label><label><input type="radio" name="q2" value="0"> Um programa para atualizar o computador</label><label><input type="radio" name="q2" value="0"> Uma configuração de privacidade</label></div><div class="quiz-question"><h3>3. O que fazer ao receber um link suspeito?</h3><label><input type="radio" name="q3" value="1"> Verificar a mensagem e o endereço antes de clicar</label><label><input type="radio" name="q3" value="0"> Clicar rapidamente para conferir</label><label><input type="radio" name="q3" value="0"> Enviar o link para outras pessoas</label></div><div class="quiz-question"><h3>4. Qual é uma boa prática nas redes sociais?</h3><label><input type="radio" name="q4" value="1"> Conferir as configurações de privacidade</label><label><input type="radio" name="q4" value="0"> Publicar todos os dados pessoais</label><label><input type="radio" name="q4" value="0"> Aceitar qualquer perfil desconhecido</label></div><div class="quiz-question"><h3>5. Qual pode ser um sinal de problema causado por arquivo ou programa suspeito?</h3><label><input type="radio" name="q5" value="1"> O computador ficar lento ou se comportar de forma estranha</label><label><input type="radio" name="q5" value="0"> A bateria durar mais</label><label><input type="radio" name="q5" value="0"> A internet ficar automaticamente mais segura</label></div><button class="quiz-btn" type="submit">Ver meu resultado</button><div id="quizResult" class="quiz-result" aria-live="polite"></div></div></section></main><a class="backtop" href="#top" title="Voltar ao topo">↑</a><footer><p>🔐 <b>Segurança Digital</b> — Projeto escolar</p><p>Senhas • Phishing • Redes Sociais • Vírus • Navegação Segura</p></footer>
+<script>
+// TROCA DE TÓPICOS PELO MENU SUPERIOR — sem rolagem e sem tópicos empilhados.
+const links=[...document.querySelectorAll('#nav a')];
+const sections=[...document.querySelectorAll('main section.topic-page')];
+function mostrarTopico(id){
+  document.body.classList.toggle('home-active', id==='inicio');
+  sections.forEach(sec=>sec.classList.toggle('active-topic', sec.id===id));
+  links.forEach(link=>link.classList.toggle('active', link.getAttribute('href')==='#'+id));
+  document.documentElement.scrollTop=0;
+  document.body.scrollTop=0;
+}
+links.forEach(link=>{
+  link.addEventListener('click',e=>{
+    e.preventDefault();
+    mostrarTopico(link.getAttribute('href').slice(1));
+  });
+});
+// Começa somente com a tela inicial visível.
+mostrarTopico('inicio');
+
+function avaliarSenha(){
+ const s=document.getElementById('senhaTeste').value,r=document.getElementById('resultadoSenha');
+ if(!s){r.textContent='⚠️ Digite uma senha de teste.';r.style.color='#ffd166';return}
+ let p=0;if(s.length>=8)p++;if(s.length>=12)p++;if(/[A-Z]/.test(s))p++;if(/[a-z]/.test(s))p++;if(/[0-9]/.test(s))p++;if(/[^A-Za-z0-9]/.test(s))p++;
+ if(p<=2){r.textContent='🔴 Fraca — tente aumentar o tamanho e misturar diferentes tipos de caracteres.';r.style.color='#ff6b78'}
+ else if(p<=4){r.textContent='🟡 Média — ainda pode ficar mais forte.';r.style.color='#ffd166'}
+ else{r.textContent='🟢 Forte — bom nível para um exemplo educativo!';r.style.color='#00f078'}
+}
+const senhaInput=document.getElementById('senhaTeste');
+if(senhaInput)senhaInput.addEventListener('keydown',e=>{if(e.key==='Enter')avaliarSenha()});
+
+// QUIZ FINAL
+const quizButton=document.querySelector('.quiz-btn');
+if(quizButton){
+ quizButton.addEventListener('click',function(){
+  const perguntas=[1,2,3,4,5];
+  let pontos=0, respondeuTudo=true;
+  perguntas.forEach(n=>{
+   const marcada=document.querySelector('input[name="q'+n+'"]:checked');
+   if(!marcada){respondeuTudo=false;}
+   else if(marcada.value==='1'){pontos++;}
+  });
+  const r=document.getElementById('quizResult');
+  r.style.display='block';
+  if(!respondeuTudo){
+   r.textContent='⚠️ Responda todas as 5 perguntas antes de ver sua pontuação.';
+   r.style.color='#ffd166';
+   return;
+  }
+  if(pontos===5) r.innerHTML='🏆 <strong>5/5!</strong> Excelente! Você acertou todas!';
+  else if(pontos>=3) r.innerHTML='👏 <strong>'+pontos+'/5!</strong> Muito bem! Você aprendeu bastante.';
+  else r.innerHTML='📚 <strong>'+pontos+'/5.</strong> Revise os tópicos e tente novamente!';
+  r.style.color=pontos>=4?'#00f078':pontos>=3?'#ffd166':'#ff6b78';
+ });
+}
+</script></body></html>
